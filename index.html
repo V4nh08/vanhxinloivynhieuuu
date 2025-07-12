@@ -29,6 +29,8 @@
     }
     .btn-container {
       margin-top: 20px;
+      position: relative;
+      display: inline-block;
     }
     button {
       font-size: 18px;
@@ -42,15 +44,15 @@
     }
     #agree-btn {
       background-color: hotpink;
-      margin-right: 20px;
+      display: block;
+      margin: 0 auto 10px auto;
     }
     #no-btn {
       background-color: lightgray;
       color: red;
       position: absolute;
-      top: 70%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
     }
     #gif-container {
       display: none;
@@ -78,18 +80,20 @@
   </div>
 
   <script>
-    // Sau khi nhấn đồng ý -> ẩn mọi thứ và hiển thị gif to
+    // Khi nhấn đồng ý -> chỉ hiện gif mèo toàn màn hình
     document.getElementById("agree-btn").addEventListener("click", function() {
       document.body.innerHTML = '<div id="gif-container"><img src="little-cute.gif" alt="Mèo vỗ tay"></div>';
     });
 
-    // Di chuyển nút "Không bao giờ" mỗi khi di chuột vào
+    // Khi chuột đến gần nút không đồng ý -> di chuyển đến vị trí ngẫu nhiên
     const noBtn = document.getElementById("no-btn");
     noBtn.addEventListener("mouseenter", () => {
-      const x = Math.floor(Math.random() * (window.innerWidth - noBtn.offsetWidth));
-      const y = Math.floor(Math.random() * (window.innerHeight - noBtn.offsetHeight));
-      noBtn.style.left = x + "px";
-      noBtn.style.top = y + "px";
+      const maxX = window.innerWidth - noBtn.offsetWidth;
+      const maxY = window.innerHeight - noBtn.offsetHeight;
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
     });
   </script>
 
