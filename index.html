@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -80,16 +79,14 @@
     <img src="little-cute.gif" alt="Mèo vỗ tay">
   </div>
 
-  <script>
-    document.getElementById("agree-btn").addEventListener("click", function () {
-      document.querySelector(".cat-img").style.display = "none";
-      document.querySelector("h1").style.display = "none";
-      document.querySelector("p").style.display = "none";
-      document.querySelector(".btn-container").style.display = "none";
-      document.getElementById("gif-container").style.display = "block";
-    });
+  <audio id="bg-music">
+    <source src="Sound.mp3" type="audio/mpeg">
+    Trình duyệt không hỗ trợ phát âm thanh.
+  </audio>
 
+  <script>
     const noBtn = document.getElementById("no-btn");
+    const audio = document.getElementById("bg-music");
 
     function moveButtonFarAway() {
       const padding = 100;
@@ -104,6 +101,17 @@
     }
 
     noBtn.addEventListener("mouseenter", moveButtonFarAway);
+
+    document.getElementById("agree-btn").addEventListener("click", function () {
+      document.querySelector(".cat-img").style.display = "none";
+      document.querySelector("h1").style.display = "none";
+      document.querySelector("p").style.display = "none";
+      document.querySelector(".btn-container").style.display = "none";
+      document.getElementById("gif-container").style.display = "block";
+
+      // Phát nhạc khi click
+      audio.play();
+    });
   </script>
 </body>
 </html>
