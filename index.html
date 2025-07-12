@@ -19,11 +19,11 @@
     }
     h1 {
       color: deeppink;
-      font-size: 24px;
+      27px;
     }
     p {
       color: hotpink;
-      font-size: 18px;
+      21px;
     }
     button {
       padding: 10px 20px;
@@ -47,10 +47,10 @@
 </head>
 <body>
   <img src="hello-kitty.png" style="width: 300px; height: auto;" alt="sad cat" />
-  <h1 style="font-size: 32px;">Bạn Vy đáng iuuu ơi cho tớ xin lỗiiii 😢</h1>
-  <p style="font-size: 20px;">Bạn không chọn hoặc thoát là đồng ý tha lỗi nhé</p>
-  <button style="font-size: 18px; padding: 10px 24px;" id="accept">Vy chấp nhận tha cho Vanh</button>
-  <button style="font-size: 18px; padding: 10px 24px;" id="decline">Không bao giờ</button>
+  <h1 style="35px;">Bạn Vy đáng iuuu ơi cho tớ xin lỗiiii 😢</h1>
+  <p style="23px;">Bạn không chọn hoặc thoát là đồng ý tha lỗi nhé</p>
+  <button style="21px; padding: 10px 24px;" id="accept">Vy chấp nhận tha cho Vanh</button>
+  <button style="21px; padding: 10px 24px;" id="decline">Không bao giờ</button>
 
   <script>
     const btn = document.getElementById("decline");
@@ -62,5 +62,14 @@
       btn.style.top = offsetY + "px";
     });
   </script>
+
+<div id="cat-gif" style="display: none; margin-top: 20px;">
+  <img src="little-cute.gif" style="width: 200px;" alt="Mèo vỗ tay">
+</div>
+<script>
+  function showCatGif() {
+    document.getElementById("cat-gif").style.display = "block";
+  }
+</script>
 </body>
 </html>
