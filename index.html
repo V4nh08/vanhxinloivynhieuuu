@@ -1,112 +1,66 @@
 
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Xin Lỗi Bạn Vy 💔</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xin Lỗi Bạn Vy ❤️</title>
   <style>
     body {
-      background-color: #ffd6e7;
       font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: pink;
       text-align: center;
-      padding-top: 100px;
-      overflow: hidden;
-      position: relative;
-      height: 100vh;
+      margin-top: 100px;
     }
-
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
     img {
-      width: 150px;
+      width: 200px;
+      height: auto;
       margin-bottom: 20px;
     }
-
-    h2 {
-      color: #ff3399;
-      font-size: 22px;
-      margin-bottom: 10px;
+    h1 {
+      color: deeppink;
+      font-size: 24px;
     }
-
-    .buttons {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      position: relative;
+    p {
+      color: hotpink;
+      font-size: 18px;
     }
-
-    .button {
-      padding: 12px 24px;
-      font-size: 16px;
-      font-weight: bold;
+    button {
+      padding: 10px 20px;
       border: none;
-      border-radius: 12px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: all 0.2s;
+      margin: 10px;
     }
-
-    .accept {
-      background-color: #ff6699;
+    #accept {
+      background-color: hotpink;
       color: white;
+      font-weight: bold;
     }
-
-    .accept:hover {
-      background-color: #ff3366;
-    }
-
-    .reject {
-      background-color: #ffe6e6;
-      color: #cc0000;
-      position: fixed;
-    }
-
-    .reject:hover {
-      background-color: #ffcccc;
-    }
-
-    .footer-icon {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      width: 60px;
-      opacity: 0.8;
+    #decline {
+      background-color: mistyrose;
+      color: red;
+      font-weight: bold;
+      position: relative;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="crying-capibara.png" alt="Crying Capybara">
-    <h2>Bạn Vy đáng iuuu ơi cho tớ xin lỗiiii 😢<br>Bạn không chọn hoặc thoát là đồng ý tha lỗi nhé</h2>
-    <div class="buttons">
-      <button class="button accept" onclick="alert('Cảm ơn Bạn Vy đã tha thứ 😭')">Em chấp nhận</button>
-      <button class="button reject" id="rejectBtn">Không bao giờ</button>
-    </div>
-  </div>
-  <img class="footer-icon" src="hello-kitty.png" alt="Kitty Icon">
+  <img src="hello-kitty.png" alt="sad cat" />
+  <h1>Bạn Vy đáng iuuu ơi cho tớ xin lỗiiii 😢</h1>
+  <p>Bạn không chọn hoặc thoát là đồng ý tha lỗi nhé</p>
+  <button id="accept">Vy chấp nhận tha cho Vanh</button>
+  <button id="decline">Không bao giờ</button>
 
   <script>
-    const rejectBtn = document.getElementById("rejectBtn");
-
-    function moveButtonFarAway() {
-      const padding = 100;
-      const maxX = window.innerWidth - rejectBtn.offsetWidth - padding;
-      const maxY = window.innerHeight - rejectBtn.offsetHeight - padding;
-
-      const randomX = Math.random() * maxX;
-      const randomY = Math.random() * maxY;
-
-      rejectBtn.style.left = `${randomX}px`;
-      rejectBtn.style.top = `${randomY}px`;
-    }
-
-    rejectBtn.addEventListener("mouseenter", moveButtonFarAway);
-
-    rejectBtn.style.left = "calc(50% + 90px)";
-    rejectBtn.style.top = "calc(50% + 20px)";
+    const btn = document.getElementById("decline");
+    btn.addEventListener("mouseover", () => {
+      const offsetX = Math.random() * window.innerWidth * 0.5;
+      const offsetY = Math.random() * window.innerHeight * 0.5;
+      btn.style.position = "absolute";
+      btn.style.left = offsetX + "px";
+      btn.style.top = offsetY + "px";
+    });
   </script>
 </body>
 </html>
