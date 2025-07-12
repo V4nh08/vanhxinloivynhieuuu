@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Xin Lỗi Bạn Vy 💔</title>
+  <style>
+    body {
+      background-color: #ffd6e7;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      overflow: hidden;
+      position: relative;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    img {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #ff3399;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    .button {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .accept {
+      background-color: #ff6699;
+      color: white;
+    }
+
+    .accept:hover {
+      background-color: #ff3366;
+    }
+
+    .reject {
+      background-color: #ffe6e6;
+      color: #cc0000;
+      position: fixed;
+    }
+
+    .reject:hover {
+      background-color: #ffcccc;
+    }
+
+    .footer-icon {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      width: 60px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="crying-capibara.png" alt="Crying Capybara">
+    <h2>Bạn Vy đáng iuuu ơi cho tớ xin lỗiiii 😢<br>Bạn không chọn hoặc thoát là đồng ý tha lỗi nhé</h2>
+    <div class="buttons">
+      <button class="button accept" onclick="alert('Cảm ơn Bạn Vy đã tha thứ 😭')">Em chấp nhận</button>
+      <button class="button reject" id="rejectBtn">Không bao giờ</button>
+    </div>
+  </div>
+  <img class="footer-icon" src="hello-kitty.png" alt="Kitty Icon">
+
+  <script>
+    const rejectBtn = document.getElementById("rejectBtn");
+
+    function moveButtonFarAway() {
+      const padding = 100;
+      const maxX = window.innerWidth - rejectBtn.offsetWidth - padding;
+      const maxY = window.innerHeight - rejectBtn.offsetHeight - padding;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      rejectBtn.style.left = `${randomX}px`;
+      rejectBtn.style.top = `${randomY}px`;
+    }
+
+    rejectBtn.addEventListener("mouseenter", moveButtonFarAway);
+
+    rejectBtn.style.left = "calc(50% + 90px)";
+    rejectBtn.style.top = "calc(50% + 20px)";
+  </script>
+</body>
+</html>
