@@ -11,6 +11,8 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
+      overflow: hidden;
+      position: relative;
     }
     .cat-img {
       width: 300px;
@@ -25,45 +27,69 @@
       font-size: 20px;
       color: palevioletred;
     }
+    .btn-container {
+      margin-top: 20px;
+    }
     button {
       font-size: 18px;
       padding: 10px 24px;
-      background-color: hotpink;
       border: none;
-      color: white;
       border-radius: 5px;
+      color: white;
       cursor: pointer;
+      position: relative;
+      z-index: 2;
     }
-    #no-button {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: #ffb3b3;
+    #agree-btn {
+      background-color: hotpink;
+      margin-right: 20px;
+    }
+    #no-btn {
+      background-color: lightgray;
       color: red;
-      font-size: 14px;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 8px;
-      cursor: not-allowed;
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #gif-container {
+      display: none;
+    }
+    #gif-container img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
     }
   </style>
 </head>
 <body>
 
-  <button id="no-button" disabled>Không bao giờ</button>
-
   <img class="cat-img" src="hello-kitty.png" alt="Sad cat">
   <h1>Bạn Vy đáng iuuu ơi cho tớ xin lỗiiii 😢</h1>
   <p>Bạn không chọn hoặc thoát là đồng ý tha lỗi nhé</p>
-  <button id="agree-btn">Vy chấp nhận tha cho Vanh</button>
 
-  <!-- Script -->
+  <div class="btn-container">
+    <button id="agree-btn">Vy chấp nhận tha cho Vanh</button>
+    <button id="no-btn">Không bao giờ</button>
+  </div>
+
+  <div id="gif-container">
+    <img src="little-cute.gif" alt="Mèo vỗ tay">
+  </div>
+
   <script>
+    // Sau khi nhấn đồng ý -> ẩn mọi thứ và hiển thị gif to
     document.getElementById("agree-btn").addEventListener("click", function() {
-      // Xóa toàn bộ nội dung body và chỉ hiển thị gif
-      document.body.innerHTML = '<img src="little-cute.gif" style="width: 250px; margin-top: 40px;" alt="Mèo vỗ tay">';
-      document.body.style.backgroundColor = 'pink';
-      document.body.style.textAlign = 'center';
+      document.body.innerHTML = '<div id="gif-container"><img src="little-cute.gif" alt="Mèo vỗ tay"></div>';
+    });
+
+    // Di chuyển nút "Không bao giờ" mỗi khi di chuột vào
+    const noBtn = document.getElementById("no-btn");
+    noBtn.addEventListener("mouseenter", () => {
+      const x = Math.floor(Math.random() * (window.innerWidth - noBtn.offsetWidth));
+      const y = Math.floor(Math.random() * (window.innerHeight - noBtn.offsetHeight));
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
     });
   </script>
 
