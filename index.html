@@ -1,75 +1,60 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xin Lỗi Bạn Vy ❤️</title>
+  <meta charset="UTF-8">
+  <title>Xin Lỗi Bạn Vy</title>
   <style>
     body {
-      font-family: 'Comic Sans MS', cursive, sans-serif;
       background-color: pink;
       text-align: center;
-      margin-top: 100px;
+      font-family: 'Arial', sans-serif;
     }
-    img {
-      width: 200px;
+    img.cat-img {
+      width: 300px;
       height: auto;
-      margin-bottom: 20px;
     }
     h1 {
+      font-size: 32px;
       color: deeppink;
-      27px;
     }
     p {
-      color: hotpink;
-      21px;
+      font-size: 20px;
+      color: palevioletred;
     }
     button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      margin: 10px;
-    }
-    #accept {
+      font-size: 18px;
+      padding: 10px 24px;
       background-color: hotpink;
+      border: none;
       color: white;
-      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
     }
-    #decline {
-      background-color: mistyrose;
-      color: red;
-      font-weight: bold;
-      position: relative;
+    #cat-gif {
+      display: none;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <img src="hello-kitty.png" style="width: 300px; height: auto;" alt="sad cat" />
-  <h1 style="35px;">Bạn Vy đáng iuuu ơi cho tớ xin lỗiiii 😢</h1>
-  <p style="23px;">Bạn không chọn hoặc thoát là đồng ý tha lỗi nhé</p>
-  <button style="21px; padding: 10px 24px;" id="accept">Vy chấp nhận tha cho Vanh</button>
-  <button style="21px; padding: 10px 24px;" id="decline">Không bao giờ</button>
 
+  <img class="cat-img" src="hello-kitty.png" alt="Sad cat">
+  <h1>Bạn Vy đáng iuuu ơi cho tớ xin lỗiiii 😢</h1>
+  <p>Bạn không chọn hoặc thoát là đồng ý tha lỗi nhé</p>
+  <button onclick="showCatGif()">Vy chấp nhận tha cho Vanh</button>
+
+  <!-- GIF mèo vỗ tay -->
+  <div id="cat-gif">
+    <img src="little-cute.gif" style="width: 200px;" alt="Mèo vỗ tay">
+  </div>
+
+  <!-- Script -->
   <script>
-    const btn = document.getElementById("decline");
-    btn.addEventListener("mouseover", () => {
-      const offsetX = Math.random() * window.innerWidth * 0.5;
-      const offsetY = Math.random() * window.innerHeight * 0.5;
-      btn.style.position = "absolute";
-      btn.style.left = offsetX + "px";
-      btn.style.top = offsetY + "px";
-    });
+    function showCatGif() {
+      document.getElementById("cat-gif").style.display = "block";
+    }
   </script>
 
-<div id="cat-gif" style="display: none; margin-top: 20px;">
-  <img src="little-cute.gif" style="width: 200px;" alt="Mèo vỗ tay">
-</div>
-<script>
-  function showCatGif() {
-    document.getElementById("cat-gif").style.display = "block";
-  }
-</script>
 </body>
 </html>
