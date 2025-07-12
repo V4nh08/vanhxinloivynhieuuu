@@ -9,10 +9,13 @@
       background-color: pink;
       text-align: center;
       font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    img.cat-img {
+    .cat-img {
       width: 300px;
       height: auto;
+      margin-top: 40px;
     }
     h1 {
       font-size: 32px;
@@ -31,29 +34,37 @@
       border-radius: 5px;
       cursor: pointer;
     }
-    #cat-gif {
-      display: none;
-      margin-top: 20px;
+    #no-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #ffb3b3;
+      color: red;
+      font-size: 14px;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: not-allowed;
     }
   </style>
 </head>
 <body>
 
+  <button id="no-button" disabled>Không bao giờ</button>
+
   <img class="cat-img" src="hello-kitty.png" alt="Sad cat">
   <h1>Bạn Vy đáng iuuu ơi cho tớ xin lỗiiii 😢</h1>
   <p>Bạn không chọn hoặc thoát là đồng ý tha lỗi nhé</p>
-  <button onclick="showCatGif()">Vy chấp nhận tha cho Vanh</button>
-
-  <!-- GIF mèo vỗ tay -->
-  <div id="cat-gif">
-    <img src="little-cute.gif" style="width: 200px;" alt="Mèo vỗ tay">
-  </div>
+  <button id="agree-btn">Vy chấp nhận tha cho Vanh</button>
 
   <!-- Script -->
   <script>
-    function showCatGif() {
-      document.getElementById("cat-gif").style.display = "block";
-    }
+    document.getElementById("agree-btn").addEventListener("click", function() {
+      // Xóa toàn bộ nội dung body và chỉ hiển thị gif
+      document.body.innerHTML = '<img src="little-cute.gif" style="width: 250px; margin-top: 40px;" alt="Mèo vỗ tay">';
+      document.body.style.backgroundColor = 'pink';
+      document.body.style.textAlign = 'center';
+    });
   </script>
 
 </body>
