@@ -50,8 +50,9 @@
     #no-btn {
       background-color: lightgray;
       color: red;
-      position: absolute;
+      position: fixed;
       left: 50%;
+      top: 60px;
       transform: translateX(-50%);
     }
     #gif-container {
@@ -79,9 +80,7 @@
     <img src="little-cute.gif" alt="Mèo vỗ tay">
   </div>
 
-  
   <script>
-    // Khi nhấn đồng ý -> chỉ hiện gif mèo toàn màn hình
     document.getElementById("agree-btn").addEventListener("click", function () {
       document.querySelector(".cat-img").style.display = "none";
       document.querySelector("h1").style.display = "none";
@@ -90,18 +89,21 @@
       document.getElementById("gif-container").style.display = "block";
     });
 
-    // Khi chuột đến gần nút không đồng ý -> di chuyển đến vị trí ngẫu nhiên trong vùng hiển thị
     const noBtn = document.getElementById("no-btn");
-    noBtn.addEventListener("mouseenter", () => {
-      const maxX = window.innerWidth - noBtn.offsetWidth - 20;
-      const maxY = window.innerHeight - noBtn.offsetHeight - 20;
-      const randomX = Math.floor(Math.random() * maxX);
-      const randomY = Math.floor(Math.random() * maxY);
-      noBtn.style.left = randomX + "px";
-      noBtn.style.top = randomY + "px";
-    });
+
+    function moveButtonFarAway() {
+      const padding = 100;
+      const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+      const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+    }
+
+    noBtn.addEventListener("mouseenter", moveButtonFarAway);
   </script>
 </body>
-</html>
-
 </html>
